@@ -1,7 +1,5 @@
 package uk.ac.serc.customers;
 
-import java.util.ArrayList;
-
 public class Customer {
     String customerID;
     String companyName;
@@ -14,6 +12,11 @@ public class Customer {
     String country;
     String phone;
     String fax;
+
+    
+    public Customer() {
+    }
+
     public Customer(String customerID, String companyName, String contactName, String contactTitle, String address,
             String city, String region, String postalCode, String country, String phone, String fax) {
         this.customerID = customerID;
@@ -96,9 +99,9 @@ public class Customer {
     }
     @Override
     public String toString() {
-        return "Customer [address=" + address + ", city=" + city + ", companyName=" + companyName + ", contactName="
-                + contactName + ", contactTitle=" + contactTitle + ", country=" + country + ", customerID=" + customerID
-                + ", fax=" + fax + ", phone=" + phone + ", postalCode=" + postalCode + ", region=" + region + "]";
+        return "Customer [customerID=" + customerID + " | companyName=" + companyName + "]";
     }
+   
+    
 
 }

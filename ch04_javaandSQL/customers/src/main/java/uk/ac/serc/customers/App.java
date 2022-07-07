@@ -7,15 +7,26 @@ import java.sql.Statement;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-/**
- * Hello world!
- *
- */
 public class App 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ){
+
+        ArrayList<Customer> customerList = getAllCustomers();
+
+        System.out.print("Please select a country for your customer(s): ");
+        Scanner keyboard = new Scanner(System.in);
+        String userInput = keyboard.nextLine();
+
+        for (Customer customer : customerList){
+            if (userInput.equals(customer.country)){
+                System.out.println(customer);
+            }
+        }
+
+    }
+
+    private static ArrayList<Customer> getAllCustomers(){
+
         String databaseName = "cf-training-db-server";
         String url = databaseName + ".database.windows.net";
         String database = "northwind";
@@ -37,26 +48,28 @@ public class App
                 try (Statement statement = connection.createStatement();
                         ResultSet resultSet = statement.executeQuery(sql)) {
                     while (resultSet.next()) {
-                        customerList.add(new Customer(resultSet.getString("customerID"),
-                                resultSet.getString("companyName"),
-                                resultSet.getString("contactName"),
-                                resultSet.getString("contactTitle"),
-                                resultSet.getString("address"),
-                                resultSet.getString("city"),
-                                resultSet.getString("region"),
-                                resultSet.getString("postalCode"),
-                                resultSet.getString("country"),
-                                resultSet.getString("phone"),
-                                resultSet.getString("fax")));
-                                
-                        
-                        //Brian's original print out:
-                        //System.out.println(resultSet.getString("CustomerID") + " | " + resultSet.getString("CompanyName") + " | " + resultSet.getString("ContactName"));
+
+                        // CustomerID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax
+
+                        Customer customer = new Customer();
+
+                        // Column label done with a capital because this is the actual column label in SQL DB
+                        customer.customerID = resultSet.getString("CustomerID");
+                        customer.companyName = resultSet.getString("CompanyName");
+                        customer.contactName = resultSet.getString("ContactName");
+                        customer.contactTitle = resultSet.getString("ContactTitle");
+                        customer.address = resultSet.getString("Address");
+                        customer.city = resultSet.getString("City");
+                        customer.region = resultSet.getString("Region");
+                        customer.postalCode = resultSet.getString("PostalCode");
+                        customer.country = resultSet.getString("Country");
+                        customer.phone = resultSet.getString("Phone");
+                        customer.fax = resultSet.getString("Fax");
+
+                        customerList.add(customer);
+
                     }
-                
-                for (Customer customerRequest:customerList){
-                    System.out.println(customerRequest.toString());
-                }
+    
                 }
                 connection.close();
                 System.out.println("All done.");
@@ -65,6 +78,6 @@ public class App
             System.out.println();
             e.printStackTrace();
         }
-
+        return customerList;
     }
-}
+ }
