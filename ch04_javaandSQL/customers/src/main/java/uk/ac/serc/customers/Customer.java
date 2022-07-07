@@ -3,104 +3,102 @@ package uk.ac.serc.customers;
 import java.util.ArrayList;
 
 public class Customer {
-    String CustomerID;
-    String CompanyName;
-    String ContactName;
-    String ContactTitle;
-    String Address;
-    String City;
-    String Region;
-    String PostalCode;
-    String Country;
-    String Phone;
-    String Fax;
-    
+    String customerID;
+    String companyName;
+    String contactName;
+    String contactTitle;
+    String address;
+    String city;
+    String region;
+    String postalCode;
+    String country;
+    String phone;
+    String fax;
     public Customer(String customerID, String companyName, String contactName, String contactTitle, String address,
             String city, String region, String postalCode, String country, String phone, String fax) {
-        CustomerID = customerID;
-        CompanyName = companyName;
-        ContactName = contactName;
-        ContactTitle = contactTitle;
-        Address = address;
-        City = city;
-        Region = region;
-        PostalCode = postalCode;
-        Country = country;
-        Phone = phone;
-        Fax = fax;
+        this.customerID = customerID;
+        this.companyName = companyName;
+        this.contactName = contactName;
+        this.contactTitle = contactTitle;
+        this.address = address;
+        this.city = city;
+        this.region = region;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.phone = phone;
+        this.fax = fax;
     }
     public String getCustomerID() {
-        return CustomerID;
+        return customerID;
     }
     public void setCustomerID(String customerID) {
-        CustomerID = customerID;
+        this.customerID = customerID;
     }
     public String getCompanyName() {
-        return CompanyName;
+        return companyName;
     }
     public void setCompanyName(String companyName) {
-        CompanyName = companyName;
+        this.companyName = companyName;
     }
     public String getContactName() {
-        return ContactName;
+        return contactName;
     }
     public void setContactName(String contactName) {
-        ContactName = contactName;
+        this.contactName = contactName;
     }
     public String getContactTitle() {
-        return ContactTitle;
+        return contactTitle;
     }
     public void setContactTitle(String contactTitle) {
-        ContactTitle = contactTitle;
+        this.contactTitle = contactTitle;
     }
     public String getAddress() {
-        return Address;
+        return address;
     }
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
     public String getCity() {
-        return City;
+        return city;
     }
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
     public String getRegion() {
-        return Region;
+        return region;
     }
     public void setRegion(String region) {
-        Region = region;
+        this.region = region;
     }
     public String getPostalCode() {
-        return PostalCode;
+        return postalCode;
     }
     public void setPostalCode(String postalCode) {
-        PostalCode = postalCode;
+        this.postalCode = postalCode;
     }
     public String getCountry() {
-        return Country;
+        return country;
     }
     public void setCountry(String country) {
-        Country = country;
+        this.country = country;
     }
     public String getPhone() {
-        return Phone;
+        return phone;
     }
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
     public String getFax() {
-        return Fax;
+        return fax;
     }
     public void setFax(String fax) {
-        Fax = fax;
+        this.fax = fax;
     }
     @Override
     public String toString() {
-        return "Customer [Address=" + Address + ", City=" + City + ", CompanyName=" + CompanyName + ", ContactName="
-                + ContactName + ", ContactTitle=" + ContactTitle + ", Country=" + Country + ", CustomerID=" + CustomerID
-                + ", Fax=" + Fax + ", Phone=" + Phone + ", PostalCode=" + PostalCode + ", Region=" + Region + "]";
+        return "Customer [address=" + address + ", city=" + city + ", companyName=" + companyName + ", contactName="
+                + contactName + ", contactTitle=" + contactTitle + ", country=" + country + ", customerID=" + customerID
+                + ", fax=" + fax + ", phone=" + phone + ", postalCode=" + postalCode + ", region=" + region + "]";
     }
 
-    
 }

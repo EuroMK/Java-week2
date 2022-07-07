@@ -37,17 +37,17 @@ public class App
                 try (Statement statement = connection.createStatement();
                         ResultSet resultSet = statement.executeQuery(sql)) {
                     while (resultSet.next()) {
-                        customerList.add(new Customer(resultSet.getString("CustomerID"),
-                                resultSet.getString("CompanyName"),
-                                resultSet.getString("ContactName"),
-                                resultSet.getString("ContactTitle"),
-                                resultSet.getString("Address"),
-                                resultSet.getString("City"),
-                                resultSet.getString("Region"),
-                                resultSet.getString("PostalCode"),
-                                resultSet.getString("Country"),
-                                resultSet.getString("Phone"),
-                                resultSet.getString("Fax")));
+                        customerList.add(new Customer(resultSet.getString("customerID"),
+                                resultSet.getString("companyName"),
+                                resultSet.getString("contactName"),
+                                resultSet.getString("contactTitle"),
+                                resultSet.getString("address"),
+                                resultSet.getString("city"),
+                                resultSet.getString("region"),
+                                resultSet.getString("postalCode"),
+                                resultSet.getString("country"),
+                                resultSet.getString("phone"),
+                                resultSet.getString("fax")));
                                 
                         
                         //Brian's original print out:
