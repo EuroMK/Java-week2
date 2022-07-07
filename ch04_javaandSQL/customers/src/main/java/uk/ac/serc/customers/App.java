@@ -1,9 +1,12 @@
-package uk.ac.serc.northwind;
+package uk.ac.serc.customers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Hello world!
@@ -22,6 +25,8 @@ public class App
     
         System.out.println(connectionUrl);
 
+        ArrayList<Customer> customerList = new ArrayList<Customer>();
+
         try {
             // Load SQL Server JDBC driver and establish connection.
             System.out.print("Connecting to SQL Server ... ");
@@ -32,8 +37,17 @@ public class App
                 try (Statement statement = connection.createStatement();
                         ResultSet resultSet = statement.executeQuery(sql)) {
                     while (resultSet.next()) {
-                        System.out.println(resultSet.getString("CustomerID") + " | " + resultSet.getString("CompanyName") + " | " + resultSet.getString("ContactName"));
+                        customerList.add(new Customer(resultSet.getString("CustomerID"),
+                                resultSet.getString("Companyname"),
+                                resultSet.getString("ContactName")));
+                        
+                        //Brian's original print out:
+                        //System.out.println(resultSet.getString("CustomerID") + " | " + resultSet.getString("CompanyName") + " | " + resultSet.getString("ContactName"));
                     }
+                
+                for (Customer customerRequest:customerList){
+                    System.out.println(customerRequest.toString());
+                }
                 }
                 connection.close();
                 System.out.println("All done.");
