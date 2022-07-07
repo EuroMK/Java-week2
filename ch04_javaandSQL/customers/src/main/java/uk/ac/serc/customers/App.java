@@ -38,8 +38,17 @@ public class App
                         ResultSet resultSet = statement.executeQuery(sql)) {
                     while (resultSet.next()) {
                         customerList.add(new Customer(resultSet.getString("CustomerID"),
-                                resultSet.getString("Companyname"),
-                                resultSet.getString("ContactName")));
+                                resultSet.getString("CompanyName"),
+                                resultSet.getString("ContactName"),
+                                resultSet.getString("ContactTitle"),
+                                resultSet.getString("Address"),
+                                resultSet.getString("City"),
+                                resultSet.getString("Region"),
+                                resultSet.getString("PostalCode"),
+                                resultSet.getString("Country"),
+                                resultSet.getString("Phone"),
+                                resultSet.getString("Fax")));
+                                
                         
                         //Brian's original print out:
                         //System.out.println(resultSet.getString("CustomerID") + " | " + resultSet.getString("CompanyName") + " | " + resultSet.getString("ContactName"));
